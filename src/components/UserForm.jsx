@@ -1,4 +1,5 @@
 import React, { useReducer } from "react";
+import "../App.css";
 
 function userFormReducer(state, action) {
   switch (action.type) {
@@ -22,7 +23,7 @@ function UserForm() {
   });
 
   return (
-    <div>
+    <div className="userForm">
       <form
         onSubmit={(e) => {
           e.preventDefault();
@@ -60,11 +61,16 @@ function UserForm() {
         <button type="submit">Submit</button>
       </form>
 
-      {state.submittedEmail && (
-        <div>
-          <h2>Submitted Email: {state.submittedEmail}</h2>
-        </div>
-      )}
+      <div className="textDiv">
+        {state.submittedEmail && (
+          <div>
+            <p>
+              <b style={{ color: "black" }}>Submitted Email:</b>{" "}
+              {state.submittedEmail}
+            </p>
+          </div>
+        )}
+      </div>
     </div>
   );
 }
